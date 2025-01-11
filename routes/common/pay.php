@@ -56,5 +56,7 @@ Route::group(['prefix' => 'pay', 'namespace' => 'Pay', 'middleware' => ['dujiaok
     Route::get('tokenpay/{payway}/{orderSN}', 'TokenPayController@gateway');
     Route::post('tokenpay/notify_url', 'TokenPayController@notifyUrl');
     Route::get('tokenpay/return_url', 'TokenPayController@returnUrl')->name('tokenpay-return');
-
+    // Stripe
+    Route::get('stripecheckout/{payway}/{orderSN}','StripeCheckoutController@gateway');
+    Route::post('stripecheckout/webhook', 'StripeCheckoutController@webhook');
 });
