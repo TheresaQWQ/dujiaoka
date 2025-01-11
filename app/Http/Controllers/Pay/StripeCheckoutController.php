@@ -19,7 +19,7 @@ class StripeCheckoutController extends PayController
         try{
             $this->loadGateWay($orderSN, $payway);
             \Stripe\Stripe::setApiKey($this->payGateway->merchant_id);
-            $price = $this->order->actual_price
+            $price = $this->order->actual_price;
             $TotalAmount = $price * 100;
             $data = [
                 'success_url'         => url('detail-order-sn', ['orderSN' => $this->order->order_sn]),
